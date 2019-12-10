@@ -68,4 +68,8 @@ public class InventarioService {
 
         return ingresoRepository.findAll();
     }
+
+    public List<Producido> getProducido() {
+        return producidoRepository.findAll();
+    }
 }

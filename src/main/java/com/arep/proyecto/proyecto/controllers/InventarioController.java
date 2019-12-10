@@ -2,6 +2,7 @@ package com.arep.proyecto.proyecto.controllers;
 
 import com.arep.proyecto.proyecto.model.Ingreso;
 import com.arep.proyecto.proyecto.model.Material;
+import com.arep.proyecto.proyecto.model.Producido;
 import com.arep.proyecto.proyecto.model.Retiro;
 import com.arep.proyecto.proyecto.services.InventarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class InventarioController {
         inventarioService.ingresar(trabajadorId,material,cantidad);
     }
 
-    @GetMapping("/producido")
+    @PostMapping("/producido")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void producido(@RequestParam String tipo, @RequestParam String trabajadorId, @RequestParam String cantidad,@RequestParam  String retiroId) {
         inventarioService.producido(tipo, trabajadorId,  cantidad, retiroId);
@@ -55,5 +56,10 @@ public class InventarioController {
     @GetMapping("/ingresos")
     public List<Ingreso> getIngresos() {
         return inventarioService.getIngresos();
+    }
+
+    @GetMapping("/producidos")
+    public List<Producido> getProducido() {
+        return inventarioService.getProducido();
     }
 }
