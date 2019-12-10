@@ -36,7 +36,7 @@ public class InventarioController {
         inventarioService.ingresar(trabajadorId,material,cantidad);
     }
 
-    @PostMapping("/producido")
+    @GetMapping("/producido")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void producido(@RequestParam String tipo, @RequestParam String trabajadorId, @RequestParam String cantidad,@RequestParam  String retiroId) {
         inventarioService.producido(tipo, trabajadorId,  cantidad, retiroId);
