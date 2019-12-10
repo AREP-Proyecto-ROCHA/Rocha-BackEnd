@@ -15,7 +15,6 @@ public class Material {
     private String nombre;
 
     @Column(name = "cantidad", unique = true, nullable = false)
-    @DecimalMin("0.00")
     private BigDecimal cantidad;
 
     @Column(name = "unidad", unique = true, nullable = false)

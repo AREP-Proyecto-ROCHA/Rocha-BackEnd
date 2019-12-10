@@ -19,20 +19,5 @@ public class ProyectoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoApplication.class, args);
 	}
-	@Bean
-	public CommandLineRunner demo(MaterialRepository repository) {
-		return (args) -> {
-			// save a few customers
-			repository.save(new Material("plastico", new BigDecimal(8),"Kilos"));
-
-			// fetch all customers
-			log.info("Customers found with findAll():");
-			log.info("-------------------------------");
-			for (Material customer : repository.findAll()) {
-				log.info(customer.toString());
-			}
-			log.info("");
-		};
-	}
 
 }
